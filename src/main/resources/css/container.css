@@ -1,0 +1,38 @@
+#container{
+
+
+    -fx-position:fixed;
+
+    -fx-top: 0;
+
+    -fx-left: 0;
+
+    -fx-width:100%;
+
+    -fx-height:100%;
+
+    -fx-min-width: 1000px;
+
+    -fx-z-index:-10;
+
+    -fx-zoom: 1;
+
+
+    -fx-background-color: rgba(230, 56, 89, 0.4);
+    /*-fx-background-image: url(/images/fish.jpg);*/
+    /*-fx-background-image: url(https://api.dujin.org/bing/1366.php);*/
+    /*-fx-background-image: url(https://www.bing.com/th?id=OHR.WhaleHug_ZH-CN4817763567_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp);*/
+/*    接口一：https://api.dujin.org/bing/1366.php
+    接口二：https://api.dujin.org/bing/1920.php*/
+
+
+    -fx-background-repeat: no-repeat;
+
+    -fx-background-size: cover;
+
+    -fx-webkit-background-size: cover;
+
+    -fx-o-background-size: cover;
+
+    -fx-background-position: center 0;
+}

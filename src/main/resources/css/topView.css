@@ -1,0 +1,15 @@
+#topView{
+    -fx-background-color: rgba(4, 40, 24, 0.3);
+}
+
+#test{
+    -jfx-button-type: RAISED;
+    -fx-background-color: rgb(77,102,204);
+    -fx-background-image: url(/images/quit.png);
+}
+
+#close_hover{
+    -jfx-button-type: FLAT;
+    -fx-text-fill: rgba(229, 12, 12, 0.5);
+    -fx-background-color: rgba(229, 12, 12, 0.5);
+}

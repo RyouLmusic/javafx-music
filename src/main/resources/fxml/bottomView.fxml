@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="bottomView" fx:id="bottomView" stylesheets="/css/bottomView.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BottomViewController">
+   <children>
+      <JFXButton layoutX="191.0" layoutY="177.0" prefHeight="50.0" prefWidth="170.0" text="按钮" textFill="#eb8a8a" />
+   </children>
+</AnchorPane>
