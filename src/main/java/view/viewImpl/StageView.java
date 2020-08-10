@@ -9,6 +9,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import view.BaseView;
 
+import static javafx.stage.StageStyle.*;
+
 /**
  * @Author: 汉高鼠刘邦
  * @Date: 2020/8/6 22:35
@@ -40,7 +42,7 @@ public class StageView extends Application {
 
         stage = primaryStage;
         BorderPane borderPane = (BorderPane) container.view();
-
+        stage.initStyle(TRANSPARENT);
 //        AnchorPane pane = (AnchorPane) view.view();
 //        AnchorPane anchorPane = (AnchorPane) bottomView.view();
 ////        pane.getChildren().add(anchorPane);

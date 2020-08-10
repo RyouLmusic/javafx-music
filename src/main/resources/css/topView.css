@@ -2,10 +2,16 @@
     -fx-background-color: rgba(4, 40, 24, 0.3);
 }
 
-#test{
+#ApplicationIcon{
     -jfx-button-type: RAISED;
-    -fx-background-color: rgb(77,102,204);
-    -fx-background-image: url(/images/quit.png);
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-background-size: 15px 15px;
+    /*-fx-background-image: url("Image/head/head10.jpg");*/
+    -fx-background-position: center center;
+    -fx-background-color:transparent;
 }
 
 #close_hover{

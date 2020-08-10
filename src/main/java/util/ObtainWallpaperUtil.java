@@ -79,6 +79,8 @@ public class ObtainWallpaperUtil {
             }
             bos.close();
             JsonParser parse = new JsonParser();
+
+//            return JsonParser.parseString(bos.toString("utf-8"));
             return (JsonObject)parse.parse(bos.toString("utf-8"));
         } catch (Exception e) {
             e.printStackTrace();

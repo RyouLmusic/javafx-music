@@ -21,8 +21,6 @@ public class SVGPathUtil {
 
     public static String getSvgGlyph(String url){
         SAXReader reader = new SAXReader();
-//        String url = "D:/music/cancel.svg";
-//        String url = "./src/main/resources/cancel.svg";
 
 
         Document document = null;

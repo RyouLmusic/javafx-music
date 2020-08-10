@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.FlowPane?>
+
+
+<FlowPane id="centerView" fx:id="centerView" stylesheets="/css/centerView.css"
+          prefHeight="640.0" prefWidth="790.0"
+          xmlns="http://javafx.com/javafx/8.0.171"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="controller.CenterViewController">
+
+</FlowPane>

@@ -8,17 +8,26 @@ package staticUrl;
  */
 public class ViewPath {
 
+
     /**
      * 顶部
      */
-    public static String TOP_VIEW = "/fxml/topView.fxml";
+    public static final String TOP_VIEW = "/fxml/topView.fxml";
     /**
      * 底部
      */
-    public static String BOTTOM_VIEW = "/fxml/bottomView.fxml";
+    public static final String BOTTOM_VIEW = "/fxml/bottomView.fxml";
     /**
      * 容器，将所有的pane放入这个里面
      */
-    public static String CONTAINER_VIEW = "/fxml/containerView.fxml";
+    public static final String CONTAINER_VIEW = "/fxml/containerView.fxml";
+    /**
+     * 侧边栏
+     */
+    public static final String LEFT_VIEW = "/fxml/leftView.fxml";
+    /**
+     * 中间的内容
+     */
+    public static final String CENTER_VIEW = "/fxml/centerView.fxml";
 
 }
