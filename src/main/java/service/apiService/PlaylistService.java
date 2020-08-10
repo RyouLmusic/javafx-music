@@ -36,15 +36,15 @@ public class PlaylistService {
 
 
 
-    public List<Playlist> setFullScreenPlaylist(){
-        return playlistCache.getPlaylist(45, 0);
+    public List<Playlist> setFullScreenPlaylist(Integer page){
+        return playlistCache.getPlaylist(75, page);
     }
 
     public List<Playlist> setPlaylist(){
-        return getPlaylist.getPlaylist(35, 0);
+        return getPlaylist.getPlaylist(28, 0);
     }
-    public List<Playlist> setPlaylistByCache(){
-        return playlistCache.getPlaylist(35, 0);
+    public List<Playlist> setPlaylistByCache(Integer page){
+        return playlistCache.getPlaylist(28, page);
     }
 
     public List<ImageView> getImageViews(Integer pageSize, Integer page){

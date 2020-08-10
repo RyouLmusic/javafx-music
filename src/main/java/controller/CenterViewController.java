@@ -2,6 +2,7 @@ package controller;
 
 import api.GetPlaylist;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
 import entity.AppModel;
 import entity.Playlist;
 import javafx.application.Platform;
@@ -10,11 +11,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.OverrunStyle;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import service.apiService.PlaylistService;
 import view.viewImpl.CenterView;
 
@@ -49,7 +55,7 @@ public class CenterViewController implements BaseViewController, Initializable {
 
         List<Playlist> playlists = playlistService.setPlaylist();
         if (!centerView.getChildren().isEmpty())
-            centerView.getChildren().remove(0, 45);
+            centerView.getChildren().remove(0, 75);
         addImage2(playlists);
     }
 
@@ -58,19 +64,21 @@ public class CenterViewController implements BaseViewController, Initializable {
      */
     public void setImageByCache(){
 
-        List<ImageView> imageViews = playlistService.getImageViews(35, 0);
+//        List<ImageView> imageViews = playlistService.getImageViews(35, 0);
+        List<Playlist> playlists = playlistService.setPlaylistByCache(0);
         if (!centerView.getChildren().isEmpty())
-            centerView.getChildren().remove(0, 45);
-        addImage(imageViews);
+            centerView.getChildren().remove(0, 75);
+        addImage2(playlists);
     }
 
     /**
      * 最大化的图片逻辑
      */
     public void setFullScreenImage(){
-        List<ImageView> imageViews = playlistService.getImageViews(45, 0);
-        centerView.getChildren().remove(0, 35);
-        addImage(imageViews);
+//        List<ImageView> imageViews = playlistService.getImageViews(45, 0);
+        List<Playlist> playlists = playlistService.setFullScreenPlaylist(0);
+        centerView.getChildren().remove(0, 28);
+        addImage2(playlists);
 
 //        JFXButton button;
     }
@@ -94,20 +102,51 @@ public class CenterViewController implements BaseViewController, Initializable {
         ImageView imageView;
         for (Playlist playlist : playlists) {
 
+
+            Label label = new Label();
+
             String path = playlist.getCoverImgUrl();
-            Image image = new Image(path);
+            Image image = new Image(path, true);
             imageView = new ImageView(image);
             imageView.setFitWidth(100);
             imageView.setFitHeight(100);
 
+            label.setText(playlist.getName());
+            label.setTextAlignment(TextAlignment.CENTER);
+            label.setMaxWidth(100);
+
+            VBox box = new VBox();
+            box.getChildren().add(imageView);
+            box.getChildren().add(label);
+
+            Tooltip tooltip2 = new Tooltip();
+            tooltip2.setText(playlist.getDescription());
+            tooltip2.setFont(new Font("Arial", 14));
+            tooltip2.setOpacity(0.8);
+            tooltip2.setMaxWidth(300);
+            tooltip2.setWrapText(true);
+            tooltip2.setShowDuration(new Duration(Double.MAX_VALUE));// 默认5秒
+            Tooltip.install(imageView, tooltip2);// Node都可以使用，如ImageVie
+
+
+            Tooltip tooltip = new Tooltip();
+            tooltip.setText(playlist.getName());
+            tooltip.setFont(new Font("Arial", 12));
+            Tooltip.install(label, tooltip);
+
+
+//            button.setPrefSize(110, 110);
+
             imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
+
                     System.out.println(mouseEvent.getX());
                 }
             });
 
-            centerView.getChildren().add(imageView);
+
+            centerView.getChildren().add(box);
         }
     }
 
@@ -131,17 +170,18 @@ public class CenterViewController implements BaseViewController, Initializable {
         model.isFullScreenProperty().addListener((obs, oldData, newData) -> {
 
             if (newData == true){
-                Platform.runLater(() -> {
+                /*Platform.runLater(() -> {
                     //更新JavaFX的主线程的代码放在此处
-
-                    System.out.println(playlistService.getImageViews(45, 0));
+//                    System.out.println(playlistService.getImageViews(45, 0));
                     setFullScreenImage();
-                });
+                });*/
+                setFullScreenImage();
             } else {
-                Platform.runLater(() -> {
+                setImageByCache();
+                /*Platform.runLater(() -> {
                     //更新JavaFX的主线程的代码放在此处
                     setImageByCache();
-                });
+                });*/
             }
 
         });
@@ -154,7 +194,7 @@ public class CenterViewController implements BaseViewController, Initializable {
                 /**
                  * TODO 更新imageViewCache
                  */
-                playlistService.setImageViewCache(45, 0);
+//                playlistService.setImageViewCache(45, 0);
             }
         });
 

@@ -2,14 +2,10 @@ package cache;
 
 import api.GetPlaylist;
 import entity.Playlist;
-import javafx.fxml.Initializable;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: 汉高鼠刘邦
@@ -28,6 +24,10 @@ public class PlaylistCache implements Cache {
     }
 
 
+    /**
+     * 生产（获取网络资源）
+     * @param playlist
+     */
     public void produce(Playlist playlist){
 
         synchronized (playlists){
@@ -45,7 +45,7 @@ public class PlaylistCache implements Cache {
             }
 
 //            print(playlist + ": 新事件已经提交...");
-            playlists.addLast(playlist);
+            playlists.addFirst(playlist);
             //唤醒那些在等待队列的线程
             playlists.notify();
         }
