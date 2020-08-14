@@ -28,6 +28,14 @@ public class ViewPath {
     /**
      * 中间的内容
      */
-    public static final String CENTER_VIEW = "/fxml/centerView.fxml";
+    public static final String PLAYLIST_VIEW = "/fxml/playlistView.fxml";
+    /**
+     * 歌单显示信息的页面
+     */
+    public static final String SONG_LIST_VIEW = "/fxml/songList.fxml";
+    /**
+     * TabPane的path
+     */
+    public static final String TAB_PANE_VIEW = "/fxml/TabPaneView.fxml";
 
 }

@@ -17,7 +17,7 @@ public class PlaylistCache implements Cache {
 
     public final static LinkedList<Playlist> playlists = new LinkedList<>();
 
-    public final Integer MAX_SIZE = 45 * 20;
+    public final Integer MAX_SIZE = 44 * 20;
 
     public PlaylistCache(){
         getPlaylist = new GetPlaylist();
@@ -33,7 +33,7 @@ public class PlaylistCache implements Cache {
         synchronized (playlists){
 
             //如果队列是满的，则再有事件要进入则要进行阻塞
-            if (playlists.size() >= MAX_SIZE){
+            while (playlists.size() >= MAX_SIZE){
 
                 try {
                     print("队列已经满了...");
@@ -45,9 +45,9 @@ public class PlaylistCache implements Cache {
             }
 
 //            print(playlist + ": 新事件已经提交...");
-            playlists.addFirst(playlist);
+            playlists.addLast(playlist);
             //唤醒那些在等待队列的线程
-            playlists.notify();
+            playlists.notifyAll();
         }
     }
 
@@ -60,7 +60,7 @@ public class PlaylistCache implements Cache {
         synchronized (playlists){
 
             //如果队列是空的
-            if (playlists.isEmpty()){
+            while (playlists.isEmpty()){
 
                 try {
                     print("队列是空的...");
@@ -71,7 +71,7 @@ public class PlaylistCache implements Cache {
             }
 
             Playlist playlist = playlists.get(index);
-            playlists.notify();
+            playlists.notifyAll();
 //            print(playlist + "：事件已经被取出队列...");
 
             return playlist;
@@ -94,7 +94,6 @@ public class PlaylistCache implements Cache {
                     System.out.println("j : +++++++++" + j);
                 }
             }).start();
-
         }
 
     }

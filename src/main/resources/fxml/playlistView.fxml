@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<BorderPane id="center" fx:id="center" prefHeight="640.0" prefWidth="790.0" stylesheets="/css/playlistView.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaylistViewController">
+   <top>
+      <FlowPane id="centerView" fx:id="centerView" prefHeight="510.0" prefWidth="790.0" BorderPane.alignment="CENTER">
+
+      </FlowPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="90.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton id="next" fx:id="next" prefHeight="30.0" prefWidth="60.0" text="下一页" textFill="#e06060" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="280.0" />
+            <JFXButton id="pre" fx:id="pre" prefHeight="30.0" prefWidth="60.0" text="上一页" textFill="#e06060" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="280.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

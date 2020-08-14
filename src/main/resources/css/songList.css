@@ -1,0 +1,20 @@
+#songListView{
+    -fx-background-color: rgba(238, 243, 226, 0.5);
+}
+
+#tableView{
+    -fx-background-color: rgba(100, 150, 200, 0.5);
+}
+
+#coverImage{
+    -fx-border-radius: 5px;
+}
+
+#subscribers{
+    -fx-background-color: rgba(250, 100, 0, 0.3);
+}
+
+#related{
+    -fx-background-color: rgba(250, 150, 50, 0.5);
+}
+

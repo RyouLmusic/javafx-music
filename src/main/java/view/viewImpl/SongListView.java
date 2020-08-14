@@ -3,18 +3,18 @@ package view.viewImpl;
 import javafx.scene.Parent;
 import view.BaseView;
 import viewFactory.ViewFactory;
-import viewFactory.viewFactoryImpl.CenterViewFactory;
+import viewFactory.viewFactoryImpl.SongListViewFactory;
 
 /**
  * @Author: 汉高鼠刘邦
- * @Date: 2020/8/8 20:00
+ * @Date: 2020/8/11 11:32
  */
-public class CenterView implements BaseView {
+public class SongListView implements BaseView {
 
     ViewFactory viewFactory;
 
-    public CenterView(){
-        viewFactory = new CenterViewFactory();
+    public SongListView(){
+        viewFactory = new SongListViewFactory();
     }
 
     @Override

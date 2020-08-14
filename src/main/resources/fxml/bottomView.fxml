@@ -3,7 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="bottomView" fx:id="bottomView" minHeight="0.0" prefHeight="80.0" prefWidth="1160.0" stylesheets="/css/bottomView.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BottomViewController">
+<AnchorPane id="bottomView" fx:id="bottomView" minHeight="0.0" prefHeight="80.0" prefWidth="1160.0" stylesheets="/css/bottomView.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BottomViewController">
    <children>
       <JFXButton layoutX="14.0" layoutY="21.0" prefHeight="50.0" prefWidth="170.0" text="按钮" textFill="#eb8a8a" />
    </children>

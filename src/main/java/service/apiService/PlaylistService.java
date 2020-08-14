@@ -35,13 +35,29 @@ public class PlaylistService {
     }
 
 
-
-    public List<Playlist> setFullScreenPlaylist(Integer page){
+    /**
+     * 给cache的，但是由于多线程的顺序太差，所以没有用起来
+     * @param page
+     * @return
+     */
+    public List<Playlist> setFullScreenPlaylistByCache(Integer page){
         return playlistCache.getPlaylist(75, page);
+    }
+
+    /**
+     *
+     * @param page
+     * @return
+     */
+    public List<Playlist> setFullScreenPlaylist(Integer page){
+        return getPlaylist.getPlaylist(75, page);
     }
 
     public List<Playlist> setPlaylist(){
         return getPlaylist.getPlaylist(28, 0);
+    }
+    public List<Playlist> setPlaylist(Integer page){
+        return getPlaylist.getPlaylist(28, page);
     }
     public List<Playlist> setPlaylistByCache(Integer page){
         return playlistCache.getPlaylist(28, page);

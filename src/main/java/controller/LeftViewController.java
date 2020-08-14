@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import entity.communication.DiscoverMusic;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -18,6 +19,9 @@ import java.util.ResourceBundle;
  */
 public class LeftViewController implements Initializable, BaseViewController {
 
+
+    public static DiscoverMusic discoverMusic = new DiscoverMusic();
+
     @FXML private JFXButton discover;
     @FXML private JFXButton local;
     @FXML private Label discoverSvg;
@@ -29,6 +33,14 @@ public class LeftViewController implements Initializable, BaseViewController {
         leftViewService = new LeftViewServiceImpl();
     }
 
+    /**
+     * 通知ContainerViewController将TabPaneView放入center中
+     */
+    public void discoverMusic(){
+        discover.setOnMouseClicked(mouseEvent -> {
+            discoverMusic.setGoToTabPane(true);
+        });
+    }
 
     @Override
     public void initSvg() {
@@ -44,5 +56,6 @@ public class LeftViewController implements Initializable, BaseViewController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initSvg();
+        discoverMusic();
     }
 }

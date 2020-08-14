@@ -1,13 +1,11 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
-import entity.Playlist;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import service.viewService.TopViewService;
 import service.viewService.serviceImpl.DragWindowHandler;
@@ -16,7 +14,6 @@ import staticUrl.SVGPath;
 import view.viewImpl.StageView;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -70,10 +67,10 @@ public class TopViewController implements Initializable, BaseViewController {
 //            stage.setMaximized(false);
             if (lambdaContext.flag == true){
                 //将歌单的图片增加
-                CenterViewController.model.setIsFullScreen(true);
+                PlaylistViewController.model.setIsFullScreen(true);
                 topViewService.initSvg(Max_Minimization, SVGPath.MINIMIZATION);
             } else{
-                CenterViewController.model.setIsFullScreen(false);
+                PlaylistViewController.model.setIsFullScreen(false);
                 topViewService.initSvg(Max_Minimization, SVGPath.MAXIMIZATION);
             }
             lambdaContext.flag = !lambdaContext.flag;
